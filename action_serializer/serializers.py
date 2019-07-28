@@ -43,10 +43,6 @@ class ModelActionSerializer(ModelSerializer):
             fields = getattr(self.Meta, 'fields', None)
             exclude = getattr(self.Meta, 'exclude', None)
 
-        if not fields and not exclude:
-            raise AttributeError("""fields not found in the `fields`/`exclude`
-                property or the `action_fields` dictionary""")
-
         if fields and fields != ALL_FIELDS and not isinstance(fields, (list, tuple)):
             raise TypeError(
                 'The `fields` option must be a list or tuple or "__all__". '
