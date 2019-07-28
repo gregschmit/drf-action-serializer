@@ -1,0 +1,56 @@
+[MASTER]
+ignore=CVS
+jobs=1
+suggestion-mode=yes
+
+[MESSAGES CONTROL]
+disable=all
+enable=unused-variable,
+       bare-except,
+       unused-import,
+       trailing-whitespace,
+       redefined-builtin,
+       bad-super-call,
+       redefined-outer-name,
+       dangerous-default-value,
+       unneeded-not,
+       too-many-locals,
+       cyclic-import
+
+[REFACTORING]
+max-nested-blocks=5
+
+[MISCELLANEOUS]
+notes=BUG,
+      TODO
+
+[VARIABLES]
+init-import=no
+
+[FORMAT]
+expected-line-ending-format=LF
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+indent-string='    '
+max-line-length=100
+max-module-lines=1000
+single-line-class-stmt=yes
+single-line-if-stmt=yes
+
+[CLASSES]
+defining-attr-methods=__init__,
+                      __new__,
+                      setUp
+exclude-protected=_asdict,
+                  _fields,
+                  _replace,
+                  _source,
+                  _make
+valid-classmethod-first-arg=cls
+valid-metaclass-classmethod-first-arg=cls
+
+[DESIGN]
+max-locals=18
+
+[EXCEPTIONS]
+overgeneral-exceptions=BaseException,
+                       Exception
