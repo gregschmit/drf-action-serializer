@@ -82,4 +82,4 @@ Tests
 
 .. code-block:: shell
 
-    # python manage.py test
+    $ python manage.py test
