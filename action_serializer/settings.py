@@ -37,6 +37,7 @@ SECRET_KEY = 'not-a-very-good-secret'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
+    'action_serializer',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',

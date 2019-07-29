@@ -1,0 +1,15 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+  - pip install coverage
+  - pip install coveralls
+
+script:
+  - coverage run --source='./action_serializer' manage.py test
+
+after_success:
+  coveralls

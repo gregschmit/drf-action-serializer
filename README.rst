@@ -1,9 +1,15 @@
 Action Serializer
 =================
 
+.. image:: https://travis-ci.org/gregschmit/drf-action-serializer.svg?branch=master
+    :target: https://travis-ci.org/gregschmit/drf-action-serializer
+
 .. image:: https://img.shields.io/pypi/v/drf-action-serializer
     :alt: PyPI
     :target: https://pypi.org/project/drf-action-serializer/
+
+.. image:: https://coveralls.io/repos/github/gregschmit/drf-action-serializer/badge.svg?branch=master
+    :target: https://coveralls.io/github/gregschmit/drf-action-serializer?branch=master
 
 Source: https://github.com/gregschmit/drf-action-serializer
 
@@ -18,7 +24,7 @@ different actions, such as less fields on a list view vs a detail view. Normally
 you would have to build multiple Serializers to support this.
 
 **The Solution**: This app provides the ``ModelActionSerializer`` which allows
-you to easily configure per-action fields.
+you to easily configure per-action serialization.
 
 
 How to Use
@@ -30,10 +36,10 @@ How to Use
 
 In your serializer, inherit from ``action_serializer.ModelActionSerializer``.
 
-In your serializer, you can add a `action_fields` dictionary to the `Meta` class
-and use `fields`, `exclude`, and `extra_kwargs` under the action key. The
-example in this project shows how to remder a smaller list of attributes for
-a list view compared to the detail view.
+In your serializer, you can add an ``action_fields`` dictionary to the ``Meta``
+class and use ``fields``, ``exclude``, and ``extra_kwargs`` under the action
+key. The example in this project shows how to render a smaller list of
+attributes for a list view compared to the detail view.
 
 .. code-block:: python
 
@@ -43,8 +49,8 @@ a list view compared to the detail view.
 
     class GroupActionSerializer(ModelActionSerializer):
         """
-        An example serializer for the Django ``Group`` model with details, and the
-        list view has less fields than the detail.
+        An example serializer for the Django ``Group`` model with details, and
+        the list view has less fields than the detail.
         """
 
         class Meta:
@@ -74,9 +80,6 @@ In your ViewSet, just set the serializer like normal:
 Tests
 =====
 
-Since this package is essentially a relatively minor change to Django Rest
-Framework, I will be testing this by incorporating the code into that project.
+.. code-block:: shell
 
-This package should be considered a proof of concept. If you run this as a
-project (using ``python manage.py runserver``), you will see that the API
-renders a Group model with different fields in the list vs detail actions.
+    # python manage.py test
