@@ -15,8 +15,6 @@ setup(
     name='drf-action-serializer',
     version=action_serializer.__version__,
     packages=find_packages(),
-    include_package_data=True,
-    package_data={'action_serializer': ['VERSION_STAMP']},
     install_requires=['Django>=2', 'djangorestframework>=3'],
     description='A serializer that handles field configuration with multiple actions from ViewSets.',
     long_description=long_description,
