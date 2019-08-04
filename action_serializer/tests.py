@@ -28,9 +28,6 @@ class RegularFieldsModel(models.Model):
     float_field = models.FloatField()
     integer_field = models.IntegerField()
 
-    def method(self):
-        return 'method'
-
 
 class ModelActionSerializerTestCase(TestCase):
     """
