@@ -1,6 +1,7 @@
 import os
 from setuptools import find_packages, setup
-from action_serializer import version
+
+import action_serializer
 
 
 # allow setup.py to be run from any path
@@ -15,7 +16,7 @@ with open('README.rst') as f:
 
 setup(
     name='drf-action-serializer',
-    version=version.get_version(),
+    version=action_serializer.__version__,
     packages=find_packages(),
     include_package_data=True,
     package_data={'action_serializer': ['VERSION_STAMP']},

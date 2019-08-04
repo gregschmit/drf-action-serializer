@@ -8,7 +8,6 @@ import os
 from django.db import models
 from django.test import TestCase
 
-from . import version
 from .serializers import ModelActionSerializer
 
 
@@ -140,28 +139,3 @@ class ModelActionSerializerTestCase(TestCase):
         """)
         context = {'view': type('ActionView', (object,), {'action': 'list'})}
         self.assertEqual(repr(TestSerializer(context=context)), expected)
-
-
-class VersionTestCase(TestCase):
-    """
-    Tests for versioning script.
-    """
-
-    def setUp(self):
-        # put us into the package directory
-        os.chdir(os.path.normpath(os.path.dirname(os.path.abspath(__file__))))
-
-    def test_version_is_str(self):
-        self.assertTrue(isinstance(version.get_version(), str))
-
-    def test_stamp_unstamp(self):
-        stamp_location = './VERSION_STAMP'
-        try:
-            os.remove(stamp_location)
-        except OSError:
-            pass
-        version.stamp_directory('.')
-        self.assertTrue(os.path.exists(stamp_location))
-        self.assertTrue(os.path.isfile(stamp_location))
-        version.unstamp_directory('.')
-        self.assertFalse(os.path.exists(stamp_location))
