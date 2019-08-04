@@ -7,9 +7,6 @@ import action_serializer
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-# stamp the package prior to installation
-version.stamp_directory('./action_serializer')
-
 # get README
 with open('README.rst') as f:
     long_description = f.read()
@@ -35,6 +32,3 @@ setup(
         'Programming Language :: Python :: 3',
     ],
 )
-
-# un-stamp the package after installation
-version.unstamp_directory('./action_serializer')
