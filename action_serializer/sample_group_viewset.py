@@ -11,8 +11,8 @@ from .serializers import ModelActionSerializer
 
 class GroupActionSerializer(ModelActionSerializer):
     """
-    An example serializer for the Django ``Group`` model with details, and the list view
-    has less fields than the detail.
+    An example serializer for the Django ``Group`` model, where the ``list`` action
+    causes less fields to be serialized than normal.
     """
 
     class Meta:

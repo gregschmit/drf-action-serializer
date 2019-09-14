@@ -50,23 +50,19 @@ compared to the detail view.
 .. code-block:: python
 
     from django.contrib.auth.models import Group
-    from .serializers import ModelActionSerializer
+    from action_serializer import ModelActionSerializer
 
 
     class GroupActionSerializer(ModelActionSerializer):
         """
-        An example serializer for the Django ``Group`` model with details, and
-        the list view has less fields than the detail.
+        An example serializer for the Django ``Group`` model, where the ``list`` action
+        causes less fields to be serialized than normal.
         """
 
         class Meta:
             model = Group
-            fields = ('id', 'name', 'permissions')
-            action_fields = {
-                'list': {
-                    'fields': ('id', 'name'),
-                },
-            }
+            fields = ("id", "name", "permissions")
+            action_fields = {"list": {"fields": ("id", "name")}}
 
 In your ViewSet, just set the serializer like normal:
 
@@ -79,6 +75,7 @@ In your ViewSet, just set the serializer like normal:
         """
         An example viewset for the Django ``Group`` model.
         """
+
         serializer_class = GroupActionSerializer
         queryset = Group.objects.all()
 
