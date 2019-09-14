@@ -72,7 +72,8 @@ class ModelActionSerializer(ModelSerializer):
         if fields == ALL_FIELDS:
             fields = None
 
-        return fields
+        if fields is not None:
+            return fields
 
         # Use the default set of field names if `Meta.fields` is not specified.
         fields = self.get_default_field_names(declared_fields, info)
