@@ -72,26 +72,7 @@ class ModelActionSerializer(ModelSerializer):
         if fields == ALL_FIELDS:
             fields = None
 
-        if fields is not None:
-            # Ensure that all declared fields have also been included in the
-            # `Meta.fields` option.
-
-            # Do not require any fields that are declared in a parent class,
-            # in order to allow serializer subclasses to only include
-            # a subset of fields.
-            required_field_names = set(declared_fields)
-            for cls in self.__class__.__bases__:
-                required_field_names -= set(getattr(cls, "_declared_fields", []))
-
-            for field_name in required_field_names:
-                assert field_name in fields, (
-                    "The field '{field_name}' was declared on serializer "
-                    "{serializer_class}, but has not been included in the "
-                    "'fields' option.".format(
-                        field_name=field_name, serializer_class=self.__class__.__name__
-                    )
-                )
-            return fields
+        return fields
 
         # Use the default set of field names if `Meta.fields` is not specified.
         fields = self.get_default_field_names(declared_fields, info)
