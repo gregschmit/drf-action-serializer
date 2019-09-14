@@ -2,6 +2,7 @@ Action Serializer
 =================
 
 .. image:: https://travis-ci.org/gregschmit/drf-action-serializer.svg?branch=master
+    :alt: TravisCI
     :target: https://travis-ci.org/gregschmit/drf-action-serializer
 
 .. image:: https://img.shields.io/pypi/v/drf-action-serializer
@@ -9,22 +10,27 @@ Action Serializer
     :target: https://pypi.org/project/drf-action-serializer/
 
 .. image:: https://coveralls.io/repos/github/gregschmit/drf-action-serializer/badge.svg?branch=master
+    :alt: Coveralls
     :target: https://coveralls.io/github/gregschmit/drf-action-serializer?branch=master
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :alt: Code Style
+    :target: https://github.com/ambv/black
 
 Source: https://github.com/gregschmit/drf-action-serializer
 
 PyPI: https://pypi.org/project/drf-action-serializer/
 
 Action Serializer is a Django Rest Framework extension package that provides a
-Serializer that implements per-action field configuration for use in your
-drf-powered API.
+Serializer that implements per-action field configuration for use in your drf-powered
+API.
 
-**The Problem**: When building APIs, often you want different serializers for
-different actions, such as less fields on a list view vs a detail view. Normally
-you would have to build multiple Serializers to support this.
+**The Problem**: When building APIs, often you want different serializers for different
+actions, such as less fields on a list view vs a detail view. Normally you would have to
+build multiple Serializers to support this.
 
-**The Solution**: This app provides the ``ModelActionSerializer`` which allows
-you to easily configure per-action serialization.
+**The Solution**: This app provides the ``ModelActionSerializer`` which allows you to
+easily configure per-action serialization.
 
 
 How to Use
@@ -36,10 +42,10 @@ How to Use
 
 In your serializer, inherit from ``action_serializer.ModelActionSerializer``.
 
-In your serializer, you can add an ``action_fields`` dictionary to the ``Meta``
-class and use ``fields``, ``exclude``, and ``extra_kwargs`` under the action
-key. The example in this project shows how to render a smaller list of
-attributes for a list view compared to the detail view.
+In your serializer, you can add an ``action_fields`` dictionary to the ``Meta`` class
+and use ``fields``, ``exclude``, and ``extra_kwargs`` under the action key. The example
+in this project shows how to render a smaller list of attributes for a list view
+compared to the detail view.
 
 .. code-block:: python
 
